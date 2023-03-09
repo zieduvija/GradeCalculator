@@ -27,17 +27,29 @@ public class Main {
         for(int i = 0; i< studentuSkaits; i++)
         {
             ievade.nextLine();
+            int[] studentaAtzimes = new int[kriteriji.length];
             System.out.println("Ievadi "+(i+1)+" studenta vārdu: ");
             studenti[i] = ievade.nextLine();
 
             for(int j = 0; j<kriteriji.length; j++)
             {
-                int[] studentaAtzimes = new int[kriteriji.length];
                 System.out.println("Studenta: "+studenti[i]+"\nVērtējums kritērijā: "+kriteriji[j]);
                 studentaAtzimes[j] = ievade.nextInt();
             }
+
+            System.out.println("Studenta: "+studenti[i]+"\nVidējā atzīme: "+AprēķinātAtzīmi(svari, studentaAtzimes));
+
         }
 
 
     }
+
+    static int AprēķinātAtzīmi(int[] svari, int[] atzimes){
+        int atzime = 0;
+        for(int i = 0; i<svari.length; i++)
+            atzime += svari[i]*atzimes[i];
+
+        return atzime/100;
+    }
+
 }
