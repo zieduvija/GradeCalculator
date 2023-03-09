@@ -6,6 +6,7 @@ public class Main {
 
         System.out.println("Ievadi studentu skaitu: ");
         int studentuSkaits = ievade.nextInt();
+        String[] studenti = new String[studentuSkaits];
 
         String[] kriteriji = {"Apmeklējums", "Mājasdarbi", "Kontroldarbi", "Eksāmens"};
 
@@ -21,6 +22,20 @@ public class Main {
                 procenti = ievade.nextInt();
             }while(procenti > 100 || procenti < 0);
             svari[i] = procenti;
+        }
+
+        for(int i = 0; i< studentuSkaits; i++)
+        {
+            ievade.nextLine();
+            System.out.println("Ievadi "+(i+1)+" studenta vārdu: ");
+            studenti[i] = ievade.nextLine();
+
+            for(int j = 0; j<kriteriji.length; j++)
+            {
+                int[] studentaAtzimes = new int[kriteriji.length];
+                System.out.println("Studenta: "+studenti[i]+"\nVērtējums kritērijā: "+kriteriji[j]);
+                studentaAtzimes[j] = ievade.nextInt();
+            }
         }
 
 
