@@ -33,8 +33,14 @@ public class Main {
 
             for(int j = 0; j<kriteriji.length; j++)
             {
+                int atzime = 0;
                 System.out.println("Studenta: "+studenti[i]+"\nVērtējums kritērijā: "+kriteriji[j]);
-                studentaAtzimes[j] = ievade.nextInt();
+                do{
+                    if(atzime > 10 || atzime < 0)
+                        System.out.println("Ievadītā atzīme ir nederīga!");
+                    atzime = ievade.nextInt();
+                }while(atzime > 10 || atzime < 0);
+                studentaAtzimes[j] = atzime;
             }
 
             System.out.println("Studenta: "+studenti[i]+"\nVidējā atzīme: "+AprēķinātAtzīmi(svari, studentaAtzimes));
